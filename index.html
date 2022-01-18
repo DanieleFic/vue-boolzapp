@@ -16,8 +16,8 @@
             
             <!-- parte superiore della parte SINISTRA  -->
             <div class="ms_headerboxleft">
-                <div class="ms_profilo">
-        
+                <div class="imgbox">
+                    <img class="ms_profilo" src="img/avatar_00.png" alt="">
                 </div>
                 <i class="fas fa-comment-alt"></i>
                 <i class="fas fa-ellipsis-v"></i>
@@ -40,7 +40,7 @@
                     <form action="/action_page.php">
                     <input class="ms_input" type="text" id="search"  placeholder="&#128270;Crea o inizia una nuova chat">
             </div>
-            <div v-for="(persona, indice) in contacts" class="ms_chat">
+            <div v-for="(persona, indice) in contacts" @click="scegliutente(indice)" @click="scegliutente(attivautente)" class="ms_chat">
                 <div class="ms_infocontatto">
                     <div>
                         <img class="ms_profiloprincipale" :src="persona.avatar" alt="">
@@ -51,32 +51,29 @@
             </div>
         </div>
         <!-- parte DESTRA del container  -->
-        <div  class="ms_rightside">
+        <div    class="ms_rightside">
             <!-- parte superiore della parte DESTRA  -->
             <div class="ms_headerboxright">
                 <div class="ms_profilo">
-                    <img src="" alt="">
+                    <img  src="" alt="">
                 </div>
                 <i class="fas fa-ellipsis-v"></i>
                 <i class="fas fa-search"></i>
             </div>
-            <div class="ms_chatbox">
-                <div class="ms_chatboxleft">
-                    <div class="ms_ricevuto">
-                        ciao
-                    </div>
-                </div>
-                <div class="ms_chatboxright">
+            <div  class="ms_boxchat">
+                <div v-for="(messaggi, indice) in contacts[0].messages" >
                     <div class="ms_inviato">
-                        ooooooo
+                        <div :class="messaggiricevuti(indice)" class="ms_inviato">
+                            {{messaggi.text}}
+                        </div>
                     </div>
-                </div>
-                
-                
             </div>
+            
+            </div>
+            
             <div class="ms_containermessaggio">
                     <form action="/action_page.php">
-                    <input class="ms_inputmessaggio" type="text" id="search"  placeholder="&#32&#32&#32Scrivi un messaggio">
+                    <input @keyup.enter="nuovoMessaggio()" class="ms_inputmessaggio" type="text" id="search"  placeholder="Scrivi un messaggio">
                     <i class="fas fa-microphone"></i>
             </div>
             

@@ -1,6 +1,8 @@
 let app = new Vue({
     el: '#app',
     data: {
+        corrente : 0,
+        messaggioVuoto:"",
         contacts: [
             {
             name: 'Batman',
@@ -86,5 +88,30 @@ let app = new Vue({
             ],
             },
             ]
-    }
-})
+    },
+    methods: {
+
+        scegliutente: function(attivautente){
+            this.corrente = attivautente
+            console.log(this.corrente)
+        },
+        
+        messaggiricevuti: function(i){
+            if(this.contacts[i].messages[1].status == 'received'){
+            return 'ms_chatboxright'
+            }else{
+                return 'ms_chatboxleft'
+            }
+        },
+        
+
+        nuovoMessaggio: function () {
+            this.contacts[this.corrente].messages.push({
+                date:"",
+                text: this.messaggioVuoto,
+                stato:"sent",
+            })
+            this.messaggioVuoto = ''
+            },
+        
+}})
