@@ -1,0 +1,58 @@
+*{
+    box-sizing: border-box;
+    background-color: black;
+}
+
+/*container principali*/
+.container {
+    margin: auto;
+    width: 70%;
+    border: 3px solid green;
+    margin-top: 50px;
+    height: 700px;
+}
+
+.ms_leftside{
+    float: left;
+    width: 35%;
+    border: 2px solid black;
+    height: 100%
+}
+
+.ms_rightside{
+    float: right;
+    width: 65%;
+    height: 100%;
+    border: 2px solid orange;
+}
+
+/*div  interni*/
+
+.ms_headerboxleft{
+    height: 55px;
+    background-color: #2b2f32;
+}
+
+.ms_headerboxright{
+    height: 55px;
+    background-color: #2b2f32;
+}
+
+.ms_boxnotifiche{
+    height: 85px;
+    background-color: rgb(120, 170, 187);
+}
+
+.ms_search{
+    background-color: #131c21;
+    height: 45px;
+}
+
+.ms_input{
+    width: 90%;
+    height: 25px;
+    margin: 10px 20px;
+    border: 0;
+    border-radius: 10px;
+    background-color: #2A2F32;
+}
