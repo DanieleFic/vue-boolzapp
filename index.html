@@ -40,29 +40,39 @@
                     <form action="/action_page.php">
                     <input class="ms_input" type="text" id="search"  placeholder="&#128270;Crea o inizia una nuova chat">
             </div>
-            <div class="ms_chat">
+            <div v-for="(persona, indice) in contacts" class="ms_chat">
                 <div class="ms_infocontatto">
-                    <div class="ms_profiloprincipale">
-        
+                    <div>
+                        <img class="ms_profiloprincipale" :src="persona.avatar" alt="">
                     </div>
-                    <h3 class="ms_nomepersona">Ciro Esposito</h3>
+                    <h3 class="ms_nomepersona">{{ persona.name }} </h3>
                     <span class="ms_testochatmignatura">wewe jam bell</span>
                 </div>
-                
             </div>
         </div>
         <!-- parte DESTRA del container  -->
-        <div class="ms_rightside">
+        <div  class="ms_rightside">
             <!-- parte superiore della parte DESTRA  -->
             <div class="ms_headerboxright">
                 <div class="ms_profilo">
-        
+                    <img src="" alt="">
                 </div>
                 <i class="fas fa-ellipsis-v"></i>
                 <i class="fas fa-search"></i>
             </div>
             <div class="ms_chatbox">
-
+                <div class="ms_chatboxleft">
+                    <div class="ms_ricevuto">
+                        ciao
+                    </div>
+                </div>
+                <div class="ms_chatboxright">
+                    <div class="ms_inviato">
+                        ooooooo
+                    </div>
+                </div>
+                
+                
             </div>
             <div class="ms_containermessaggio">
                     <form action="/action_page.php">

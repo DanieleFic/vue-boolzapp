@@ -1,29 +1,46 @@
 *{
     box-sizing: border-box;
+}
+
+body{
     background-color: black;
+}
+
+.ms_headerboxright
+.fas:hover{
+    color: white;
+    cursor: pointer;
+}
+
+.ms_headerboxleft
+.fas:hover{
+    color: white;
+    cursor: pointer;
 }
 
 /*container principali*/
 .container {
     margin: auto;
     width: 70%;
-    border: 3px solid green;
     margin-top: 50px;
-    height: 700px;
+    height: 750px;
+    
 }
 
 .ms_leftside{
     float: left;
     width: 35%;
-    border: 2px solid black;
-    height: 100%
+    border-right: 1px solid gray;
+    height: 100%;
+    background-color: #121c20;
 }
 
 .ms_rightside{
     float: right;
     width: 65%;
     height: 100%;
-    border: 2px solid orange;
+    background: url(https://i.pinimg.com/originals/85/ec/df/85ecdf1c3611ecc9b7fa85282d9526e0.jpg);
+    background-size: contain;
 }
 
 /*div  interni*/
@@ -31,6 +48,56 @@
 .ms_headerboxleft{
     height: 55px;
     background-color: #2b2f32;
+}
+
+.ms_chat{
+    height: 70px;
+    background-color: #323739;
+}
+
+
+.ms_testochatmignatura{
+    margin-top: 50px;
+    color: white;
+}
+
+.ms_nomepersona{
+    margin: 0;
+    margin-left: 80px;
+    color: white;
+    padding-top: 18px;
+}
+
+.ms_nomepersona h3{
+    margin-top: 80px;
+    color: white;
+}
+
+
+.ms_testochatmignatura span{
+    margin-top: 50px;
+}
+
+
+.ms_headerboxleft .fas{
+    font-size: 17px;
+    color: #b1b2b4;
+    float: right;
+    margin-top: 15px;
+    padding-left: 25px;
+}
+
+.ms_headerboxright .fas{
+    font-size: 17px;
+    color: #b1b2b4;
+    float: right;
+    margin-top: 15px;
+    margin-right: 25px;
+}
+
+
+.fa-comment-alt{
+    margin-right: 20px;
 }
 
 .ms_headerboxright{
@@ -43,9 +110,68 @@
     background-color: rgb(120, 170, 187);
 }
 
-.ms_search{
-    background-color: #131c21;
+.ms_profilo{
+    display: inline-block;
+    margin: 10px 20px;
+    border-radius: 35px;
+    height: 35px;
+    width: 35px;
+    background-size: contain;
+    background-color: white;
+}
+
+.ms_profiloprincipale{
+    float: left;
+    border-radius: 35px;
+    margin: 10px 20px;
     height: 45px;
+    width: 45px;
+    background-color: white;
+}
+
+.ms_bell{
+    float: left;
+    padding: 11px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 150px;
+    margin-right: 4px;
+}
+
+.fa-microphone{
+    font-size: 17px;
+    color: #b1b2b4;
+}
+
+.fa-bell-slash{
+    font-size: 20px;
+}
+
+
+.box_scritte{
+    padding: 20px 55px;
+}
+
+.box_scritte p  {
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+}
+
+.box_scritte span {
+    padding: 0;
+    margin: 0;
+    text-decoration: underline;
+}
+
+.ms_search{
+    background-color: #121c20;
+    height: 45px;
+    border-bottom: 0.5px solid gray;
+}
+
+.ms_chatbox{
+    height: calc(100% - 105px);
+    overflow-y: auto;
 }
 
 .ms_input{
@@ -55,4 +181,60 @@
     border: 0;
     border-radius: 10px;
     background-color: #2A2F32;
+    color: gray;
+}
+
+.ms_inputmessaggio{
+    width: 90%;
+    height: 35px;
+    margin: 7px 15px;
+    border: 0;
+    background-color: #2A2F32;
+    color: gray;
+    border-radius: 15px;
+}
+
+.ms_containermessaggio{
+    height: 50px;
+    background-color:#121c20 ;
+}
+
+.ms_infocontatto{
+    height: 70px;
+    border-bottom: 1px solid gray;
+}
+
+.ms_ricevuto{
+    display: block;
+    float: left;
+    background-color: #2A2F32;
+    padding: 6px 7px 8px 9px;
+    min-height: 30px;
+    min-width:100px;
+    margin: 8px 7px 70px 20px ;
+    color: white;
+    border-radius: 10px;
+    min-width: 80%;
+}
+
+.ms_inviato{
+    float: right;
+    background-color: rgba(4, 96, 98);
+    padding: 6px 7px 8px 9px;
+    min-height: 30px;
+    min-width:100px;
+    margin: 8px 20px 75px 9px ;
+    color: white;
+    border-radius: 10px;
+    min-width: 70%;
+}
+
+.ms_chatboxleft{
+    width: 50%;
+    float: left;
+}
+.ms_chatboxright{
+    margin-top: 45px;
+    width: 50%;
+    float: right;
 }
