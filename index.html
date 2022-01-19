@@ -37,10 +37,10 @@
             </div>
             <!-- Input search bar per cercare le chat   -->
             <div class="ms_search">
-                    <form action="/action_page.php">
-                    <input class="ms_input" type="text" id="search"  placeholder="&#128270;Crea o inizia una nuova chat">
+                    
+                    <input   class="ms_input" type="text" id="search"  placeholder="&#128270;Crea o inizia una nuova chat">
             </div>
-            <div v-for="(persona, indice) in contacts" @click="scegliutente(indice)"  class="ms_chat">
+            <div v-for="(persona, indice) in contacts" v-for="contacts in filteredProducts" @click="scegliutente(indice)"  class="ms_chat">
                 <div class="ms_infocontatto">
                     <div>
                         <img class="ms_profiloprincipale" :src="persona.avatar" alt="">
@@ -60,7 +60,7 @@
                 <i class="fas fa-ellipsis-v"></i>
                 <i class="fas fa-search"></i>
             </div>
-            <div  class="ms_boxchat" v-if="messaggioAI"> 
+            <div  class="ms_boxchat" > 
                 <div v-for="(messaggi, indice) in contacts[corrente].messages" class="ms_inviato" :class="messaggiricevuti(indice)">
                     {{messaggi.text}}
                     <!--<div :class="messaggiorario(indice)">
@@ -70,7 +70,7 @@
             </div>
             
             <div class="ms_containermessaggio">
-                    <form action="/action_page.php">
+                    
                     <input @keyup.enter="nuovoMessaggio" v-model="messaggioVuoto" class="ms_inputmessaggio" type="text" id="search"  placeholder="Scrivi un messaggio">
                     <i class="fas fa-microphone"></i>
             </div>

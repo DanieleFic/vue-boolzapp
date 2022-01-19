@@ -1,8 +1,11 @@
+
 let app = new Vue({
     el: '#app',
     data: {
         corrente : 0,
         messaggioVuoto:"",
+        arrayNomi: [],
+        cerca: null,
         contacts: [
             {
             name: 'Batman',
@@ -117,6 +120,7 @@ let app = new Vue({
                 status:"received",
             }),1000)
             },
-
             
-}})     
+},
+    
+})     
