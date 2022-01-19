@@ -209,42 +209,59 @@ body{
 .ms_infocontatto{
     height: 70px;
     border-bottom: 1px solid gray;
+    cursor: pointer;
 }
 
 .ms_ricevuto{
     display: block;
-    
     color: white;
     border-radius: 10px;
     min-width: 80%;
 }
 
 .ms_inviato{
-    float: right;
+    align-self: flex-end;
     color: white;
     min-width: 100%;
 }
 
 .ms_chatboxleft{
+    align-self: flex-start;
     padding: 10px 10px 8px 9px;
-    margin: 8px 7px 50px 20px ;
+    margin: 8px 7px 20px 20px ;
     min-height: 30px;
     min-width:100px;
-    float: left;
+    max-width: 40%;
     background-color: #2A2F32;
-    border-radius: 10px;
-    color: white;
+    border-radius: 0px 10px 10px 10px;
+    color: rgba(255, 255, 255, 0.8);
 }
 .ms_chatboxright{
+    align-self: flex-end;
     padding: 10px 10px 8px 9px;
-    margin: 50px 7px 55px 20px ;
+    margin: 50px 7px 20px 20px ;
     background-color: rgba(4, 96, 98);
     min-width: 100px;
-    float: right;
-    border-radius: 10px;
-    color: white;
+    max-width: 40%;
+    border-radius: 10px 0px 10px 10px;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .ms_boxchat{
     height: calc(100% - 105px);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.ms_dateleft{
+    font-size: 10px;
+    margin-left: 100px;
+    color: lightslategray;
+}
+
+.ms_dateright{
+    font-size: 10px;
+    color: lightslategray;
+
 }

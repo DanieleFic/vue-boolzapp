@@ -90,28 +90,33 @@ let app = new Vue({
             ]
     },
     methods: {
-
+    /*function che ti cambia l'utente attivo nella lista contatti*/
         scegliutente: function(attivautente){
             this.corrente = attivautente
             console.log(this.corrente)
-        },
-        
+            },
+        /*function che ti cambia la classe in basse al messaggio sia ricevuto o inviato*/
         messaggiricevuti: function(i){
-            if(this.contacts[i].messages[1].status == 'received'){
-            return 'ms_chatboxright'
+            if(this.contacts[this.corrente].messages[i].status == 'received'){
+            return 'ms_chatboxleft'
             }else{
-                return 'ms_chatboxleft'
+                return 'ms_chatboxright'
             }
         },
-        
-
+        /*function che ti pusha il messaggio che scrivi nell input e ti da la risposta con il setTimeout*/
         nuovoMessaggio: function () {
             this.contacts[this.corrente].messages.push({
                 date:"",
                 text: this.messaggioVuoto,
-                stato:"sent",
+                status:"sent",
             })
-            this.messaggioVuoto = ''
+            this.messaggioVuoto = "",
+            setTimeout(() => this.contacts[this.corrente].messages.push({
+                date:"",
+                text: "ok",
+                status:"received",
+            }),1000)
             },
-        
-}})
+
+            
+}})     
