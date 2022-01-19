@@ -48,9 +48,9 @@
             <!-- parte superiore della parte DESTRA  -->
             <div class="ms_headerboxright">
 
-                <div class="ms_headerboxleftside">
-                    <img class="ms_profilo"  src="img/angry_pepe.jpg" alt="">
-                    <span class="ms_mionome">Daniele Boolean</span>
+                <div  class="ms_headerboxleftside">
+                    <img  class="ms_profilo"  :src="contacts[corrente].avatar" alt="">
+                    <span class="ms_mionome">{{contacts[corrente].name}}</span>
                 </div>
                 <div class="ms_headerboxrightside">
                     <i class="fas fa-ellipsis-v"></i>
@@ -68,7 +68,7 @@
                         <div id="myDropdown" class="dropdown-content">
                             <a href="#">Link 2</a>
                         </div>
-                      </div>
+                    </div>
                     <div :class="messaggiorario(indice)">
                         {{messaggi.date}}
                     </div>-->

@@ -123,11 +123,12 @@ let app = new Vue({
             search : function (indice){
                 //console.log(this.contacts[this.corrente].name)
                 //console.log(this.valorericerca)
-                if(!this.contacts[indice].name.includes(this.valorericerca)){
-                    console.log("la parola non è compresa")
+                if(!this.contacts[indice].name.toLowerCase().includes(this.valorericerca.toLowerCase())){
+                    console.log("la lettera non è compresa")
                     return "none"
                 }   return "block"
             }
+            
 },
 })     
 

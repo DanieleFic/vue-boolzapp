@@ -20,6 +20,7 @@ body{
 
 /*container principali*/
 .container {
+    display: flex;
     margin: auto;
     width: 70%;
     margin-top: 50px;
@@ -28,7 +29,8 @@ body{
 }
 
 .ms_leftside{
-    float: left;
+    display: flex;
+    flex-direction: column;
     width: 35%;
     border-right: 1px solid gray;
     height: 100%;
@@ -36,7 +38,6 @@ body{
 }
 
 .ms_rightside{
-    float: right;
     width: 65%;
     height: 100%;
     background: url(https://i.pinimg.com/originals/85/ec/df/85ecdf1c3611ecc9b7fa85282d9526e0.jpg);
@@ -56,6 +57,7 @@ body{
     background-color: #323739;
     border-bottom: 1px solid gray;
     cursor: pointer;
+    display: flex;
 }
 .ms_chat:hover{
     background-color: rgba(255, 255, 255, 0.4);
@@ -139,8 +141,11 @@ body{
 
 
 .ms_boxnotifiche{
+    display: flex;
+    flex-direction: column;
     height: 85px;
     background-color: rgb(120, 170, 187);
+    cursor: pointer;
 }
 
 .ms_profilo{
@@ -181,7 +186,7 @@ body{
 
 
 .box_scritte{
-    padding: 20px 55px;
+    margin: 20px 20px;
 }
 
 .box_scritte p  {
@@ -307,7 +312,7 @@ body{
 }
 
 .block{
-    display: block;
+    display: inline-block;
 }
 
 
