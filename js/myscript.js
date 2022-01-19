@@ -4,7 +4,7 @@ let app = new Vue({
     data: {
         corrente : 0,
         messaggioVuoto:"",
-        arrayNomi: [],
+        valorericerca: "",
         cerca: null,
         contacts: [
             {
@@ -120,7 +120,31 @@ let app = new Vue({
                 status:"received",
             }),1000)
             },
-            
+            search : function (indice){
+                //console.log(this.contacts[this.corrente].name)
+                //console.log(this.valorericerca)
+                if(!this.contacts[indice].name.includes(this.valorericerca)){
+                    console.log("la parola non è compresa")
+                    return "none"
+                }   return "block"
+            }
 },
-    
 })     
+
+/*function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+  
+  // Close the dropdown menu if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }*/

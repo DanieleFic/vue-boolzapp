@@ -13,66 +13,71 @@
     <div id="app" class="container">
         <!-- parte SINISTRA del container -->
         <div class="ms_leftside">
-            
-            <!-- parte superiore della parte SINISTRA  -->
-            <div class="ms_headerboxleft">
-                <div class="imgbox">
-                    <img class="ms_profilo" src="img/avatar_00.png" alt="">
-                </div>
-                <i class="fas fa-comment-alt"></i>
-                <i class="fas fa-ellipsis-v"></i>
-                <i class="fas fa-undo"></i>
+        <!-- parte superiore della parte SINISTRA  -->
+        <div class="ms_headerboxleft">
+            <div class="imgbox">
+                <img class="ms_profilo" src="img/angry_pepe.jpg" alt="">
             </div>
+            <i class="fas fa-comment-alt"></i>
+            <i class="fas fa-ellipsis-v"></i>
+            <i class="fas fa-undo"></i>
+        </div>
             <!-- box azzurro delle notifiche  -->
-            <div class="ms_boxnotifiche">
-                <div class="box_scritte">
-                    <div class="ms_bell">
-                        <i class="far fa-bell-slash"></i>
-                    </div>
-                    
-                    <p>Ricevi notifiche di  nuovi messaggi</p>
-                    <span>Attiva notifiche Desktop</span>
+        <div class="ms_boxnotifiche">
+            <div class="box_scritte">
+                <div class="ms_bell">
+                    <i class="far fa-bell-slash"></i>
                 </div>
-                
-            </div>
+                <p>Ricevi notifiche di  nuovi messaggi</p>
+                <span>Attiva notifiche Desktop</span>
+            </div>  
+        </div>
             <!-- Input search bar per cercare le chat   -->
-            <div class="ms_search">
-                    
-                    <input   class="ms_input" type="text" id="search"  placeholder="&#128270;Crea o inizia una nuova chat">
-            </div>
-            <div v-for="(persona, indice) in contacts" v-for="contacts in filteredProducts" @click="scegliutente(indice)"  class="ms_chat">
-                <div class="ms_infocontatto">
-                    <div>
-                        <img class="ms_profiloprincipale" :src="persona.avatar" alt="">
-                    </div>
-                    <h3 class="ms_nomepersona">{{ persona.name }} </h3>
-                    <span class="ms_testochatmignatura">wewe jam bell</span>
-                </div>
-            </div>
+        <div class="ms_search">
+            <input @keyup="search" v-model="valorericerca"  class="ms_input" type="text" id="search"  placeholder="&#128270;Crea o inizia una nuova chat">
+        </div>
+
+        <div v-for="(persona, indice) in contacts" :class="search(indice)"  v-for="contacts in filteredProducts" @click="scegliutente(indice)"  class="ms_chat">
+            <img class="ms_profiloprincipale"   :src="persona.avatar" alt="">
+            <h3 class="ms_nomepersona">{{ persona.name }} </h3>
+            <span class="ms_testochatmignatura">{{ persona.messages.at(-1).text }}</span>
+        </div>
         </div>
         <!-- parte DESTRA del container  -->
         <div    class="ms_rightside">
             <!-- parte superiore della parte DESTRA  -->
             <div class="ms_headerboxright">
-                <div class="ms_profilo">
-                    <img  src="" alt="">
+
+                <div class="ms_headerboxleftside">
+                    <img class="ms_profilo"  src="img/angry_pepe.jpg" alt="">
+                    <span class="ms_mionome">Daniele Boolean</span>
                 </div>
-                <i class="fas fa-ellipsis-v"></i>
-                <i class="fas fa-search"></i>
+                <div class="ms_headerboxrightside">
+                    <i class="fas fa-ellipsis-v"></i>
+                    <i class="fas fa-search"></i>
+                </div>
+
+            
+                
             </div>
             <div  class="ms_boxchat" > 
                 <div v-for="(messaggi, indice) in contacts[corrente].messages" class="ms_inviato" :class="messaggiricevuti(indice)">
                     {{messaggi.text}}
-                    <!--<div :class="messaggiorario(indice)">
+                    <!--<div class="dropdown">
+                        <i onclick="myFunction()"  class="dropbtn fas fa-sort-down"></i>
+                        <div id="myDropdown" class="dropdown-content">
+                            <a href="#">Link 2</a>
+                        </div>
+                      </div>
+                    <div :class="messaggiorario(indice)">
                         {{messaggi.date}}
                     </div>-->
                 </div>
             </div>
             
             <div class="ms_containermessaggio">
-                    
-                    <input @keyup.enter="nuovoMessaggio" v-model="messaggioVuoto" class="ms_inputmessaggio" type="text" id="search"  placeholder="Scrivi un messaggio">
-                    <i class="fas fa-microphone"></i>
+                <input @keyup.enter="nuovoMessaggio" v-model="messaggioVuoto" class="ms_inputmessaggio" type="text" id="search"  placeholder="Scrivi un messaggio">
+                <i class="fas fa-microphone"></i>
             </div>
             
         </div>
