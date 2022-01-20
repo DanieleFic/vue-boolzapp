@@ -37,22 +37,26 @@
             <input @keyup="search" v-model="valorericerca"  class="ms_input" type="text" id="search"  placeholder="&#128270;Crea o inizia una nuova chat">
         </div>
 
-        <div v-for="(persona, indice) in contacts" :class="search(indice)"  v-for="contacts in filteredProducts" @click="scegliutente(indice)"  class="ms_chat">
+        <div v-for="(persona, indice) in contacts" 
+        :class="search(indice)" 
+        @click="scegliutente(indice)"  
+        class="ms_chat">
             <img class="ms_profiloprincipale"   :src="persona.avatar" alt="">
             <h3 class="ms_nomepersona">{{ persona.name }} </h3>
             <span class="ms_testochatmignatura">{{ persona.messages.at(-1).text }}</span>
+            <span>{{persona.date}}</span>
         </div>
         </div>
         <!-- parte DESTRA del container  -->
         <div    class="ms_rightside">
             <!-- parte superiore della parte DESTRA  -->
-            <div class="ms_headerboxright">
+            <div v-if="corrente != null" class="ms_headerboxright">
 
-                <div  class="ms_headerboxleftside">
+                <div    class="ms_headerboxleftside">
                     <img  class="ms_profilo"  :src="contacts[corrente].avatar" alt="">
                     <span class="ms_mionome">{{contacts[corrente].name}}</span>
                 </div>
-                <div class="ms_headerboxrightside">
+                <div  class="ms_headerboxrightside">
                     <i class="fas fa-ellipsis-v"></i>
                     <i class="fas fa-search"></i>
                 </div>
@@ -60,22 +64,33 @@
             
                 
             </div>
-            <div  class="ms_boxchat" > 
-                <div v-for="(messaggi, indice) in contacts[corrente].messages" class="ms_inviato" :class="messaggiricevuti(indice)">
+            <div v-if="corrente != null"  class="ms_boxchat" > 
+                <div 
+                v-for="(messaggi, indice) in contacts[corrente].messages" 
+                class="ms_inviato" 
+                :class="messaggiricevuti(indice)">
                     {{messaggi.text}}
                     <!--<div class="dropdown">
                         <i onclick="myFunction()"  class="dropbtn fas fa-sort-down"></i>
                         <div id="myDropdown" class="dropdown-content">
                             <a href="#">Link 2</a>
                         </div>
-                    </div>
-                    <div :class="messaggiorario(indice)">
-                        {{messaggi.date}}
                     </div>-->
+                    <div class="ms_data">
+                        {{messaggi.date}}
+                    </div>
                 </div>
             </div>
-            
-            <div class="ms_containermessaggio">
+            <div v-else class="ms_nochat">
+                <img src="/img/noconnection.jpg" alt="">
+                <h1>Mantieni il telefono connesso</h1>
+                <span>WhatsApp si collega al tuo telefono per sincronizzare i messaggi.
+                Per ridurre l'utilizzo dei dati, collega il telefono al Wi-Fi.</span>
+                <p>Chiama da desktop con WhatsApp per Windows. </p>
+            </div>
+                
+            <div v-if="corrente != null" class="ms_containermessaggio">
+                <i class="far fa-smile"></i>
                 <input @keyup.enter="nuovoMessaggio" v-model="messaggioVuoto" class="ms_inputmessaggio" type="text" id="search"  placeholder="Scrivi un messaggio">
                 <i class="fas fa-microphone"></i>
             </div>
@@ -103,6 +118,7 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     <script src="js/myscript.js"></script>
 </body>
 </html>

@@ -2,7 +2,7 @@
 let app = new Vue({
     el: '#app',
     data: {
-        corrente : 0,
+        corrente : null,
         messaggioVuoto:"",
         valorericerca: "",
         cerca: null,
@@ -109,13 +109,14 @@ let app = new Vue({
         /*function che ti pusha il messaggio che scrivi nell input e ti da la risposta con il setTimeout*/
         nuovoMessaggio: function () {
             this.contacts[this.corrente].messages.push({
-                date:"",
+                date:dayjs().hour(),
                 text: this.messaggioVuoto,
                 status:"sent",
             })
+            console.log(dayjs().format())
             this.messaggioVuoto = "",
             setTimeout(() => this.contacts[this.corrente].messages.push({
-                date:"",
+                date:dayjs().minute(),
                 text: "ok",
                 status:"received",
             }),1000)
