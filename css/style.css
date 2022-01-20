@@ -53,7 +53,7 @@ body{
 }
 
 .ms_chat{
-    height: 70px;
+    height: 85px;
     background-color: #323739;
     border-bottom: 1px solid gray;
     cursor: pointer;
@@ -290,7 +290,7 @@ body{
     margin: 8px 7px 20px 20px ;
     min-height: 45px;
     min-width:100px;
-    max-width: 40%;
+    max-width: 100%;
     background-color: #2A2F32;
     border-radius: 0px 10px 10px 10px;
     color: rgba(255, 255, 255, 0.8);
@@ -302,7 +302,7 @@ body{
     margin: 50px 7px 20px 20px ;
     background-color: rgba(4, 96, 98);
     min-width: 100px;
-    max-width: 40%;
+    max-width: 100%;
     border-radius: 10px 0px 10px 10px;
     color: rgba(255, 255, 255, 0.8);
     word-break: break-word;
@@ -313,6 +313,7 @@ body{
     overflow-y: auto;
     display: flex;
     flex-direction: column;
+    padding: 0px 15px;
 }
 
 .ms_dateleft{
@@ -347,6 +348,19 @@ body{
     display: block!important;
 }
 
+.ms_orariosinista{
+    font-size: 10px;
+}
+
+.ms_elementi{
+    display: flex;
+    flex-direction: column;
+}
+
+.ms_data{
+    color: white;
+}
+
 /* Dropdown Button */
 .dropbtn {
     color: gray;
@@ -375,6 +389,7 @@ min-width: 160px;
 box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 z-index: 1;
 border-radius: 10px;
+top: 45px;
 }
 
 /* Links inside the dropdown */

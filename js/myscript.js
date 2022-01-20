@@ -6,6 +6,7 @@ let app = new Vue({
         messaggioVuoto:"",
         valorericerca: "",
         cerca: null,
+        dropDownCorrente:null,
         contacts: [
             {
             name: 'Batman',
@@ -133,10 +134,24 @@ let app = new Vue({
                     }
                 });
             },
-            dropdown : function (){
-                console.log("ciao")
-                return "display"
-            }
-},
+            dropdown : function (indice){
+                this.dropDownCorrente = indice
+                console.log(indice)
+            },
+            cancellazioneMessaggi : function (corrente, indice){
+                console.log("funzione cancella")
+                
+                if(this.contacts[corrente].messages.length == 1 ){
+                    this.contacts[corrente].messages = []
+                }else{
+                    this.contacts[corrente].messages.splice(indice, 1)
+                }
+                console.log(this.contacts[corrente].messages)
+            },
+            mouseOutTendina: function (){
+                return "none"
+                }
+            },
+            
 })     
 

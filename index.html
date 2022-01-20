@@ -10,7 +10,7 @@
 </head>
 <body>
     <!-- Container generale che contiene tutto -->
-    <div id="app" class="container">
+    <div id="app"  class="container">
         <!-- parte SINISTRA del container -->
         <div class="ms_leftside">
         <!-- parte superiore della parte SINISTRA  -->
@@ -43,14 +43,14 @@
         class="ms_chat">
             <img class="ms_profiloprincipale"   :src="persona.avatar" alt="">
             <h3 class="ms_nomepersona">{{ persona.name }} </h3>
-            <span class="ms_testochatmignatura">{{ persona.messages.at(-1).text }}</span>
-            <span>{{persona.date}}</span>
+            <span v-if="persona.messages.length > 0" class="ms_testochatmignatura">{{ persona.messages.at(-1).text }}</span>
+            <span class="ms_data" v-if="persona.messages.length > 0">{{ persona.messages.at(-1).date }}</span>
         </div>
         </div>
         <!-- parte DESTRA del container  -->
-        <div    class="ms_rightside">
+        <div     class="ms_rightside">
             <!-- parte superiore della parte DESTRA  -->
-            <div v-if="corrente != null" class="ms_headerboxright">
+            <div v-if="corrente != null"  class="ms_headerboxright">
 
                 <div    class="ms_headerboxleftside">
                     <img  class="ms_profilo"  :src="contacts[corrente].avatar" alt="">
@@ -70,13 +70,11 @@
                 class="ms_inviato" 
                 :class="messaggiricevuti(indice)">
                     {{messaggi.text}}
-                    <div class="dropdown">
-                        <i    class="dropbtn fas fa-sort-down"></i>
-                        <div  id="myDropdown" class="dropdown-content" @click="dropdown" :class="dropdown()">
+                    <i @click="dropdown(indice)"   class="dropbtn fas fa-sort-down"></i>
+                        <div  id="myDropdown" class="dropdown-content"   :class="{display: dropDownCorrente == indice}" >
                             <a href="#">Info Messaggio</a>
-                            <a v-on:click="contacts[corrente].messages.splice(0, 1)" href="#">Rimuovi Messaggio</a>
+                            <a v-on:click="cancellazioneMessaggi(corrente, indice)"  href="#">Rimuovi Messaggio</a>
                         </div>
-                    </div>
                     <div class="ms_data">
                         {{messaggi.date}}
                     </div>
