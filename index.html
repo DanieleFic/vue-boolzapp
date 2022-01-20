@@ -38,7 +38,7 @@
         </div>
 
         <div v-for="(persona, indice) in contacts" 
-        :class="search(indice)" 
+        :class="{none:!persona.visible}" 
         @click="scegliutente(indice)"  
         class="ms_chat">
             <img class="ms_profiloprincipale"   :src="persona.avatar" alt="">

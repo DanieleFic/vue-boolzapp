@@ -57,7 +57,6 @@ body{
     background-color: #323739;
     border-bottom: 1px solid gray;
     cursor: pointer;
-    display: flex;
 }
 .ms_chat:hover{
     background-color: rgba(255, 255, 255, 0.4);

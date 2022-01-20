@@ -108,8 +108,11 @@ let app = new Vue({
         },
         /*function che ti pusha il messaggio che scrivi nell input e ti da la risposta con il setTimeout*/
         nuovoMessaggio: function () {
+            let orario = dayjs(dayjs(), "MM-DD-YYYY")
+            
+            console.log(orario)
             this.contacts[this.corrente].messages.push({
-                date:dayjs().hour(),
+                date:dayjs(dayjs(),"HH mm"),
                 text: this.messaggioVuoto,
                 status:"sent",
             })
@@ -117,17 +120,28 @@ let app = new Vue({
             this.messaggioVuoto = "",
             setTimeout(() => this.contacts[this.corrente].messages.push({
                 date:dayjs().minute(),
-                text: "ok",
+                text: "ok dude",
                 status:"received",
             }),1000)
             },
-            search : function (indice){
-                //console.log(this.contacts[this.corrente].name)
-                //console.log(this.valorericerca)
-                if(!this.contacts[indice].name.toLowerCase().includes(this.valorericerca.toLowerCase())){
+            search : function (){
+                this.contacts.forEach(contatto => {
+                    if(contatto.name.toLowerCase().includes(this.valorericerca.toLowerCase())){
+                        console.log("la lettera  è compresa")
+                        console.log(contatto.visible)
+                        contatto.visible=true;
+                    }else{
+                        console.log("la lettera non è compresa")
+                        console.log(contatto.visible)
+                        contatto.visible=false;
+                    }
+                });
+                /*if(!this.contacts[indice].name.toLowerCase().includes(this.valorericerca.toLowerCase())){
                     console.log("la lettera non è compresa")
+            
+
                     return "none"
-                }   return "block"
+                }   */
             }
             
 },
@@ -135,10 +149,10 @@ let app = new Vue({
 
 /*function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
-  }
-  
+}
+
   // Close the dropdown menu if the user clicks outside of it
-  window.onclick = function(event) {
+window.onclick = function(event) {
     if (!event.target.matches('.dropbtn')) {
       var dropdowns = document.getElementsByClassName("dropdown-content");
       var i;
