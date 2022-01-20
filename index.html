@@ -70,12 +70,13 @@
                 class="ms_inviato" 
                 :class="messaggiricevuti(indice)">
                     {{messaggi.text}}
-                    <!--<div class="dropdown">
-                        <i onclick="myFunction()"  class="dropbtn fas fa-sort-down"></i>
-                        <div id="myDropdown" class="dropdown-content">
-                            <a href="#">Link 2</a>
+                    <div class="dropdown">
+                        <i    class="dropbtn fas fa-sort-down"></i>
+                        <div  id="myDropdown" class="dropdown-content" :class="dropdown()">
+                            <a href="#">Info Messaggio</a>
+                            <a v-on:click="contacts[corrente].messages.splice(indice, 1)" href="#">Rimuovi Messaggio</a>
                         </div>
-                    </div>-->
+                    </div>
                     <div class="ms_data">
                         {{messaggi.date}}
                     </div>
@@ -96,6 +97,7 @@
             </div>
             
         </div>
+        
     </div>
 
 

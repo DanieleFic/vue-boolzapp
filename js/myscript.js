@@ -108,18 +108,14 @@ let app = new Vue({
         },
         /*function che ti pusha il messaggio che scrivi nell input e ti da la risposta con il setTimeout*/
         nuovoMessaggio: function () {
-            let orario = dayjs(dayjs(), "MM-DD-YYYY")
-            
-            console.log(orario)
             this.contacts[this.corrente].messages.push({
-                date:dayjs(dayjs(),"HH mm"),
+                date:`${dayjs().hour()}:${dayjs().minute()}`,
                 text: this.messaggioVuoto,
                 status:"sent",
             })
-            console.log(dayjs().format())
             this.messaggioVuoto = "",
             setTimeout(() => this.contacts[this.corrente].messages.push({
-                date:dayjs().minute(),
+                date:`${dayjs().hour()}:${dayjs().minute()}`,
                 text: "ok dude",
                 status:"received",
             }),1000)
@@ -127,7 +123,7 @@ let app = new Vue({
             search : function (){
                 this.contacts.forEach(contatto => {
                     if(contatto.name.toLowerCase().includes(this.valorericerca.toLowerCase())){
-                        console.log("la lettera  è compresa")
+                        //console.log("la lettera  è compresa")
                         console.log(contatto.visible)
                         contatto.visible=true;
                     }else{
@@ -136,31 +132,11 @@ let app = new Vue({
                         contatto.visible=false;
                     }
                 });
-                /*if(!this.contacts[indice].name.toLowerCase().includes(this.valorericerca.toLowerCase())){
-                    console.log("la lettera non è compresa")
-            
-
-                    return "none"
-                }   */
+            },
+            dropdown : function (){
+                console.log("ciao")
+                return "display"
             }
-            
 },
 })     
 
-/*function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-}
-
-  // Close the dropdown menu if the user clicks outside of it
-window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
-    }
-  }*/
