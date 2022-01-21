@@ -44,7 +44,7 @@
             <img class="ms_profiloprincipale"   :src="persona.avatar" alt="">
             <h3 class="ms_nomepersona">{{ persona.name }} </h3>
             <span v-if="persona.messages.length > 0" class="ms_testochatmignatura">{{ persona.messages.at(-1).text }}</span>
-            <span class="ms_data" v-if="persona.messages.length > 0">{{ persona.messages.at(-1).date }}</span>
+            <p class="ms_data" v-if="persona.messages.length > 0">{{ persona.messages.at(-1).date }}</p>
         </div>
 
 
@@ -69,7 +69,10 @@
                     
                 </div>
                 <div  class="ms_headerboxrightside">
-                    <i class="fas fa-ellipsis-v"></i>
+                    <i  @click="dropDownChat()"  class="dropbtn fas fa-ellipsis-v"></i>
+                    <div  id="myDropdown" class="dropdown-content"   >
+                        <a  @click="rimuoviChat(corrente)"  href="#">Rimuovi Chat</a>
+                    </div>
                     <i class="fas fa-search"></i>
                 </div>
 

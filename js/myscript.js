@@ -7,6 +7,10 @@ let app = new Vue({
         valorericerca: "",
         cerca: null,
         dropDownCorrente:null,
+        variabile: null,
+        risposteRandom: [
+            "ciao", "comestai?", "seiscemo?", "fumi?", "voglio andare al mare,vuoi venire?", "o scè", "ti sto dicendo cose a casoxd", "ciao mirtillo","ciao mora"
+        ],
         contacts: [
             {
             name: 'Batman',
@@ -114,6 +118,13 @@ let app = new Vue({
             }
         },
 
+        dropDownChat: function(){
+            console.log("ciaos")
+            let tendina = document.getElementById("myDropdown");
+            tendina.classList.add("block")
+            
+        },
+
         /*stascrivendo : function(){
             let boxscritta = document.querySelector(".stascrivendo").innerHTML = "stascrivendo"
 
@@ -135,13 +146,13 @@ let app = new Vue({
             
         },
 
-            rispostaMessaggio : function (indiceContatto){
-                this.contacts[indiceContatto].messages.push({
-                date:`${dayjs().hour()}:${dayjs().minute()} ${dayjs().date()}-${dayjs().month()}1-${dayjs().year()}`,
-                text: "ok dude",
-                status:"received",
-                })
-            },
+        rispostaMessaggio : function (indiceContatto){
+            this.contacts[indiceContatto].messages.push({
+            date:`${dayjs().hour()}:${dayjs().minute()} ${dayjs().date()}-${dayjs().month()}1-${dayjs().year()}`,
+            text: this.risposteRandom[Math.floor (Math.random() * this.risposteRandom.length)],
+            status:"received",
+            })
+        },
 
             /*function che lavora sulla barra search per far 
             apparire e sparire i contatti se l'input di ricerca
@@ -170,12 +181,16 @@ let app = new Vue({
                 }else{
                     this.dropDownCorrente = null
                 }
-                
             },
             /*function che ti cancella i messaggi */
             cancellazioneMessaggi : function (corrente, indice){
                 this.contacts[corrente].messages.splice(indice, 1)
             }},
             
-})     
+            
+           rimuovichat : function ( corrente ){
+            this.contacts[this.corrente].splice(corrente, 1)
+        }
+})          
+
 

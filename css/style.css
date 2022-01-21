@@ -73,7 +73,6 @@ body{
 
 .ms_nomepersona{
     margin: 0;
-    margin-left: 80px;
     color: white;
     padding-top: 18px;
 }
@@ -341,11 +340,13 @@ body{
 }
 
 .block{
-    display: inline-block;
+    display: inline-block!important;
 }
 
 .ms_data{
     font-size: 10px;
+    margin-left: 80px;
+    margin-top: 10px;
 }
 
 .display{
