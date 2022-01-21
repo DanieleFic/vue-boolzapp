@@ -93,13 +93,19 @@ let app = new Vue({
             },
             ]
     },
+    updated: function () {
+        let box = document.querySelector(".ms_boxchat");
+        box.scrollTop = box.scrollHeight;
+    },
     methods: {
     /*function che ti cambia l'utente attivo nella lista contatti*/
         scegliutente: function(attivautente){
             this.corrente = attivautente
-            console.log(this.corrente)
+            this.dropDownCorrente = null
+            console.log(this.dropDownCorrente, "ciao")
+            //console.log(this.corrente)
             },
-        /*function che ti cambia la classe in basse al messaggio sia ricevuto o inviato*/
+        /*function che ti cambia la classe in base al messaggio sia ricevuto o inviato*/
         messaggiricevuti: function(i){
             if(this.contacts[this.corrente].messages[i].status == 'received'){
             return 'ms_chatboxleft'
@@ -107,20 +113,39 @@ let app = new Vue({
                 return 'ms_chatboxright'
             }
         },
-        /*function che ti pusha il messaggio che scrivi nell input e ti da la risposta con il setTimeout*/
+
+        /*stascrivendo : function(){
+            let boxscritta = document.querySelector(".stascrivendo").innerHTML = "stascrivendo"
+
+        },
+        /*function che ti pusha il messaggio che scrivi nell input
+        e ti da la risposta con il setTimeout*/
         nuovoMessaggio: function () {
-            this.contacts[this.corrente].messages.push({
-                date:`${dayjs().hour()}:${dayjs().minute()}`,
-                text: this.messaggioVuoto,
-                status:"sent",
-            })
-            this.messaggioVuoto = "",
-            setTimeout(() => this.contacts[this.corrente].messages.push({
-                date:`${dayjs().hour()}:${dayjs().minute()}`,
+            if(this.messaggioVuoto != 0){
+                this.contacts[this.corrente].messages.push({
+                    date:`${dayjs().hour()}:${dayjs().minute()} ${dayjs().date()}-${dayjs().month()}1-${dayjs().year()}`,
+                    text: this.messaggioVuoto,
+                    status:"sent",
+                })
+                this.messaggioVuoto = ""
+                const   indiceContatto = this.corrente;
+                (setTimeout(() =>{ this.rispostaMessaggio(indiceContatto)}
+            ,3000)
+            )}
+            
+        },
+
+            rispostaMessaggio : function (indiceContatto){
+                this.contacts[indiceContatto].messages.push({
+                date:`${dayjs().hour()}:${dayjs().minute()} ${dayjs().date()}-${dayjs().month()}1-${dayjs().year()}`,
                 text: "ok dude",
                 status:"received",
-            }),1000)
+                })
             },
+
+            /*function che lavora sulla barra search per far 
+            apparire e sparire i contatti se l'input di ricerca
+            è compreso in contatto.name*/
             search : function (){
                 this.contacts.forEach(contatto => {
                     if(contatto.name.toLowerCase().includes(this.valorericerca.toLowerCase())){
@@ -134,24 +159,23 @@ let app = new Vue({
                     }
                 });
             },
+
+            
+
+
             dropdown : function (indice){
-                this.dropDownCorrente = indice
-                console.log(indice)
-            },
-            cancellazioneMessaggi : function (corrente, indice){
-                console.log("funzione cancella")
-                
-                if(this.contacts[corrente].messages.length == 1 ){
-                    this.contacts[corrente].messages = []
+                //this.dropDownCorrente = this.dropDownCorrente != indice ? indice : null
+                if(this.dropDownCorrente != indice){
+                    this.dropDownCorrente = indice
                 }else{
-                    this.contacts[corrente].messages.splice(indice, 1)
+                    this.dropDownCorrente = null
                 }
-                console.log(this.contacts[corrente].messages)
+                
             },
-            mouseOutTendina: function (){
-                return "none"
-                }
-            },
+            /*function che ti cancella i messaggi */
+            cancellazioneMessaggi : function (corrente, indice){
+                this.contacts[corrente].messages.splice(indice, 1)
+            }},
             
 })     
 

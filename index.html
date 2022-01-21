@@ -46,15 +46,27 @@
             <span v-if="persona.messages.length > 0" class="ms_testochatmignatura">{{ persona.messages.at(-1).text }}</span>
             <span class="ms_data" v-if="persona.messages.length > 0">{{ persona.messages.at(-1).date }}</span>
         </div>
-        </div>
+
+
+    </div>
+
+    
+
+
         <!-- parte DESTRA del container  -->
         <div     class="ms_rightside">
             <!-- parte superiore della parte DESTRA  -->
             <div v-if="corrente != null"  class="ms_headerboxright">
 
-                <div    class="ms_headerboxleftside">
+                <div  class="ms_headerboxleftside">
                     <img  class="ms_profilo"  :src="contacts[corrente].avatar" alt="">
-                    <span class="ms_mionome">{{contacts[corrente].name}}</span>
+                    <div class="ms_nomefoto">
+                        <span class="ms_mionome">{{contacts[corrente].name}}</span>
+                        <!--<div v-if="messaggioVuoto.length > 0">{{contacts[corrente].name}} sta scrivendo...</div>-->
+                        <div class="stascrivendo" v-if="contacts[corrente].messages.length > 0" > ultimo accesso : {{contacts[corrente].messages.at(-1).date}}  </div>
+                    </div>
+                    
+                    
                 </div>
                 <div  class="ms_headerboxrightside">
                     <i class="fas fa-ellipsis-v"></i>
@@ -71,7 +83,7 @@
                 :class="messaggiricevuti(indice)">
                     {{messaggi.text}}
                     <i @click="dropdown(indice)"   class="dropbtn fas fa-sort-down"></i>
-                        <div  id="myDropdown" class="dropdown-content"   :class="{display: dropDownCorrente == indice}" >
+                        <div  id="myDropdown" class="dropdown-content"   :class="{display: dropDownCorrente == indice} " >
                             <a href="#">Info Messaggio</a>
                             <a v-on:click="cancellazioneMessaggi(corrente, indice)"  href="#">Rimuovi Messaggio</a>
                         </div>
@@ -80,6 +92,7 @@
                     </div>
                 </div>
             </div>
+            
             <div v-else class="ms_nochat">
                 <img src="/img/noconnection.jpg" alt="">
                 <h1>Mantieni il telefono connesso</h1>
@@ -91,7 +104,9 @@
             <div v-if="corrente != null" class="ms_containermessaggio">
                 <i class="far fa-smile"></i>
                 <input @keyup.enter="nuovoMessaggio" v-model="messaggioVuoto" class="ms_inputmessaggio" type="text" id="search"  placeholder="Scrivi un messaggio">
-                <i class="fas fa-microphone"></i>
+                <i  v-if="messaggioVuoto.length > 0" @click="nuovoMessaggio"   class="far fa-paper-plane"></i>
+                <i v-else  class="fas fa-microphone"></i>
+                
             </div>
             
         </div>
