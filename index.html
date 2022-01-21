@@ -69,8 +69,8 @@
                     
                 </div>
                 <div  class="ms_headerboxrightside">
-                    <i  @click="dropDownChat()"  class="dropbtn fas fa-ellipsis-v"></i>
-                    <div  id="myDropdown" class="dropdown-content"   >
+                    <i  @click="dropDownChat(corrente)"   class="dropbtn fas fa-ellipsis-v"></i>
+                    <div  id="myDropdown" class="dropdown-content" :class="{display: dropDownTendina == corrente}"  >
                         <a  @click="rimuoviChat(corrente)"  href="#">Rimuovi Chat</a>
                     </div>
                     <i class="fas fa-search"></i>
@@ -86,7 +86,7 @@
                 :class="messaggiricevuti(indice)">
                     {{messaggi.text}}
                     <i @click="dropdown(indice)"   class="dropbtn fas fa-sort-down"></i>
-                        <div  id="myDropdown" class="dropdown-content"   :class="{display: dropDownCorrente == indice} " >
+                        <div  id="myDropdown" class="dropdown-content"   :class="{display: dropDownCorrente == indice}" >
                             <a href="#">Info Messaggio</a>
                             <a v-on:click="cancellazioneMessaggi(corrente, indice)"  href="#">Rimuovi Messaggio</a>
                         </div>

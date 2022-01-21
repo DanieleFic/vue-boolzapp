@@ -7,7 +7,7 @@ let app = new Vue({
         valorericerca: "",
         cerca: null,
         dropDownCorrente:null,
-        variabile: null,
+        dropDownTendina: null,
         risposteRandom: [
             "ciao", "comestai?", "seiscemo?", "fumi?", "voglio andare al mare,vuoi venire?", "o scè", "ti sto dicendo cose a casoxd", "ciao mirtillo","ciao mora"
         ],
@@ -106,7 +106,8 @@ let app = new Vue({
         scegliutente: function(attivautente){
             this.corrente = attivautente
             this.dropDownCorrente = null
-            console.log(this.dropDownCorrente, "ciao")
+            
+            //console.log(this.dropDownCorrente, "ciao")
             //console.log(this.corrente)
             },
         /*function che ti cambia la classe in base al messaggio sia ricevuto o inviato*/
@@ -118,13 +119,7 @@ let app = new Vue({
             }
         },
 
-        dropDownChat: function(){
-            console.log("ciaos")
-            let tendina = document.getElementById("myDropdown");
-            tendina.classList.add("block")
-            
-        },
-
+        
         /*stascrivendo : function(){
             let boxscritta = document.querySelector(".stascrivendo").innerHTML = "stascrivendo"
 
@@ -171,7 +166,23 @@ let app = new Vue({
                 });
             },
 
-            
+            dropDownChat: function(corrente){
+                console.log("la funzione è partita")
+                //console.log("ciaos")
+                //let tendina = document.getElementById("myDropdown");
+                //tendina.classList.add("block")
+                if(this.dropDownTendina != corrente){
+                    this.dropDownTendina = corrente
+                    console.log("sei nell if ")
+                    console.log(this.dropDownTendina)
+                    console.log(corrente)
+                }else{
+                    this.dropDownTendina = null
+                    console.log("sei nell else ")
+                }
+                
+            },
+    
 
 
             dropdown : function (indice){
@@ -182,15 +193,18 @@ let app = new Vue({
                     this.dropDownCorrente = null
                 }
             },
+
             /*function che ti cancella i messaggi */
             cancellazioneMessaggi : function (corrente, indice){
                 this.contacts[corrente].messages.splice(indice, 1)
-            }},
-            
-            
-           rimuovichat : function ( corrente ){
-            this.contacts[this.corrente].splice(corrente, 1)
-        }
+            },
+
+            rimuoviChat : function ( corrente ){
+                console.log(this.contacts[corrente])
+                this.contacts.splice(corrente, 1)
+            }
+        },
+
 })          
 
 
