@@ -345,8 +345,7 @@ body{
 
 .ms_data{
     font-size: 10px;
-    margin-left: 80px;
-    margin-top: 10px;
+    color: white;
 }
 
 .display{
@@ -362,9 +361,6 @@ body{
     flex-direction: column;
 }
 
-.ms_data{
-    color: white;
-}
 
 /* Dropdown Button */
 .dropbtn {
@@ -398,6 +394,19 @@ top: 45px;
 right: -23px;
 }
 
+.dropdown-contentchat {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+    top: 100px;
+    left: 300px;
+    background-color: red;
+    }
+
 /* Links inside the dropdown */
 .dropdown-content a {
 color: black;
@@ -409,3 +418,41 @@ display: block;
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
 
+.ms_fotoprova{
+    border-radius: 50%;
+    height: 45px;
+    width: 45px;
+    margin-top: 10px;
+}
+
+.msdivprova{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 85px;
+    background-color: #323739;
+    border-bottom: 1px solid gray;
+    cursor: pointer;
+}
+
+.ms_ultimoMessaggio{
+    color: white;
+    font-size: 13px;
+}
+
+.ms_foto{
+    width: 20%;
+    margin-left: 5px;
+}
+
+.ms_nomeEmessaggio{
+    width: 60%;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.ms_data2{
+    width: 20%;
+    color: white;
+    font-size: 10px;
+}

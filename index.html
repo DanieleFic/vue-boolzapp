@@ -14,30 +14,31 @@
         <!-- parte SINISTRA del container -->
         <div class="ms_leftside">
         <!-- parte superiore della parte SINISTRA  -->
-        <div class="ms_headerboxleft">
-            <div class="imgbox">
-                <img class="ms_profilo" src="img/angry_pepe.jpg" alt="">
-            </div>
-            <i class="fas fa-comment-alt"></i>
-            <i class="fas fa-ellipsis-v"></i>
-            <i class="fas fa-undo"></i>
-        </div>
-            <!-- box azzurro delle notifiche  -->
-        <div class="ms_boxnotifiche">
-            <div class="box_scritte">
-                <div class="ms_bell">
-                    <i class="far fa-bell-slash"></i>
+            <div class="ms_headerboxleft">
+                <div class="imgbox">
+                    <img class="ms_profilo" src="img/angry_pepe.jpg" alt="">
                 </div>
-                <p>Ricevi notifiche di  nuovi messaggi</p>
-                <span>Attiva notifiche Desktop</span>
-            </div>  
-        </div>
+                <i class="fas fa-comment-alt"></i>
+                <i class="fas fa-ellipsis-v"></i>
+                <i class="fas fa-plus"></i>
+                
+            </div>
+                <!-- box azzurro delle notifiche  -->
+            <div class="ms_boxnotifiche">
+                <div class="box_scritte">
+                    <div class="ms_bell">
+                        <i class="far fa-bell-slash"></i>
+                    </div>
+                    <p>Ricevi notifiche di  nuovi messaggi</p>
+                    <span>Attiva notifiche Desktop</span>
+                </div>  
+            </div>
             <!-- Input search bar per cercare le chat   -->
         <div class="ms_search">
             <input @keyup="search" v-model="valorericerca"  class="ms_input" type="text" id="search"  placeholder="&#128270;Crea o inizia una nuova chat">
         </div>
 
-        <div v-for="(persona, indice) in contacts" 
+        <!--<div v-for="(persona, indice) in contacts" 
         :class="{none:!persona.visible}" 
         @click="scegliutente(indice)"  
         class="ms_chat">
@@ -45,11 +46,26 @@
             <h3 class="ms_nomepersona">{{ persona.name }} </h3>
             <span v-if="persona.messages.length > 0" class="ms_testochatmignatura">{{ persona.messages.at(-1).text }}</span>
             <p class="ms_data" v-if="persona.messages.length > 0">{{ persona.messages.at(-1).date }}</p>
+        </div>-->
+        <!--Ho rifatto i div sulla Sinistra perchè quelli di prima erano fatti in float e davano problemi-->
+        <div class="ms_contenitorepersona">
+            <div class="msdivprova"
+            v-for="(persona, indice) in contacts" 
+            :class="{none:!persona.visible}" 
+            @click="scegliutente(indice)">
+                <div class="ms_foto">
+                    <img   class="ms_fotoprova"   :src="persona.avatar" alt="">
+                </div>
+                <div class="ms_nomeEmessaggio">
+                    <div   class="ms_nomepersona">{{ persona.name }}</div>
+                    <div  v-if="persona.messages.length > 0" class="ms_ultimoMessaggio">{{ persona.messages.at(-1).text }}</div>
+                    <div style="color: aliceblue;" v-else>Messaggio Eliminato</div>
+                </div>
+                    <div  v-if="persona.messages.length > 0" class="ms_data2">{{ persona.messages.at(-1).date }}</div>
+                </div>
+            </div>
         </div>
-
-
-    </div>
-
+    
     
 
 
@@ -63,7 +79,7 @@
                     <div class="ms_nomefoto">
                         <span class="ms_mionome">{{contacts[corrente].name}}</span>
                         <!--<div v-if="messaggioVuoto.length > 0">{{contacts[corrente].name}} sta scrivendo...</div>-->
-                        <div class="stascrivendo" v-if="contacts[corrente].messages.length > 0" > ultimo accesso : {{contacts[corrente].messages.at(-1).date}}  </div>
+                        <div  v-if="contacts[corrente].messages.length > 0" >{{contacts[corrente].online}}  </div>
                     </div>
                     
                     

@@ -8,14 +8,16 @@ let app = new Vue({
         cerca: null,
         dropDownCorrente:null,
         dropDownTendina: null,
+        dropDownChat2:null,
         risposteRandom: [
-            "ciao", "comestai?", "seiscemo?", "fumi?", "voglio andare al mare,vuoi venire?", "o scè", "ti sto dicendo cose a casoxd", "ciao mirtillo","ciao mora"
+            "ciao", "come stai?", "sei scemo?", "fumi?", "voglio andare al mare,vuoi venire?", "o scè", "ti sto dicendo cose a casoxd", "ciao mirtillo","ciao mora"
         ],
         contacts: [
             {
             name: 'Batman',
             avatar: 'img/avatar_01.png',
             visible: true,
+            online: "Ultimo accesso 10/10/2022",
             messages: [
             {
             date: '10/01/2020 15:30:55',
@@ -38,6 +40,7 @@ let app = new Vue({
             name: 'Donald',
             avatar: 'img/avatar_02.png',
             visible: true,
+            online: "Ultimo accesso 1/10/2022",
             messages: [
             {
             date: '20/03/2020 16:30:00',
@@ -51,7 +54,7 @@ let app = new Vue({
             },
             {
             date: '20/03/2020 16:35:00',
-            text: 'Mi piacerebbe ma devo andare a fare la spesa.',
+            text: 'Mi piacerebbe. ',
             status: 'sent'
             }
             ],
@@ -60,6 +63,7 @@ let app = new Vue({
             name: 'Heisenberg',
             avatar: 'img/avatar_04.png',
             visible: true,
+            online: "Ultimo accesso 12/12/2022",
             messages: [
             {
             date: '28/03/2020 10:10:40',
@@ -82,6 +86,7 @@ let app = new Vue({
             name: 'Luisa',
             avatar: 'img/avatar_03.png',
             visible: true,
+            online: "Ultimo accesso 10/12/2022",
             messages: [
             {
             date: '10/01/2020 15:30:55',
@@ -134,9 +139,15 @@ let app = new Vue({
                     status:"sent",
                 })
                 this.messaggioVuoto = ""
+                setTimeout(() => {
+                    this.contacts[this.corrente].online = "Sta scrivendo...";
+                }, 1000);
+                setTimeout(() => {
+                    this.contacts[this.corrente].online = "Ultimo accesso oggi alle " + dayjs().format("HH:mm");;
+                }, 6000);
                 const   indiceContatto = this.corrente;
                 (setTimeout(() =>{ this.rispostaMessaggio(indiceContatto)}
-            ,3000)
+            ,6000)
             )}
             
         },
@@ -182,7 +193,16 @@ let app = new Vue({
                 }
                 
             },
-    
+            
+            dropDownAggiungiChat: function (indice){
+                console.log("ciao")
+                return "block"
+                /*if(this.dropDownChat != indice){
+                    this.dropDownChat = indice
+                }else{
+                    this.dropDownChat = null
+                }*/
+            },
 
 
             dropdown : function (indice){
