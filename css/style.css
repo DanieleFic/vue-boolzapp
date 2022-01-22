@@ -336,7 +336,7 @@ body{
 }
 
 .none{
-    display: none;
+    display: none!important;
 }
 
 .block{
@@ -442,12 +442,11 @@ display: block;
 
 .ms_foto{
     width: 20%;
-    margin-left: 5px;
+    margin-left: 20px;
 }
 
 .ms_nomeEmessaggio{
     width: 60%;
-    margin-left: 20px;
     margin-bottom: 20px;
 }
 
@@ -455,4 +454,11 @@ display: block;
     width: 20%;
     color: white;
     font-size: 10px;
+}
+
+#nome{
+    display: inline-block;
+    margin-top:17px;
+    color: white;
+    font-weight: 900;
 }

@@ -139,16 +139,20 @@ let app = new Vue({
                     status:"sent",
                 })
                 this.messaggioVuoto = ""
+                const   indiceContatto = this.corrente;
+                (setTimeout(() =>{ this.rispostaMessaggio(indiceContatto)}
+                ,2000)
+                )}
                 setTimeout(() => {
                     this.contacts[this.corrente].online = "Sta scrivendo...";
                 }, 1000);
                 setTimeout(() => {
+                    this.contacts[this.corrente].online = "Online";
+                }, 2000);
+                setTimeout(() => {
                     this.contacts[this.corrente].online = "Ultimo accesso oggi alle " + dayjs().format("HH:mm");;
-                }, 6000);
-                const   indiceContatto = this.corrente;
-                (setTimeout(() =>{ this.rispostaMessaggio(indiceContatto)}
-            ,6000)
-            )}
+                }, 7000);
+                
             
         },
 
@@ -194,17 +198,6 @@ let app = new Vue({
                 
             },
             
-            dropDownAggiungiChat: function (indice){
-                console.log("ciao")
-                return "block"
-                /*if(this.dropDownChat != indice){
-                    this.dropDownChat = indice
-                }else{
-                    this.dropDownChat = null
-                }*/
-            },
-
-
             dropdown : function (indice){
                 //this.dropDownCorrente = this.dropDownCorrente != indice ? indice : null
                 if(this.dropDownCorrente != indice){
