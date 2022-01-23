@@ -121,9 +121,15 @@ body{
     font-size: 12px;
 }
 
-.ms_nomepersona{
+.dark .ms_nomepersona{
     margin: 0;
     color: white;
+    padding-top: 18px;
+}
+
+.white .ms_nomepersona{
+    margin: 0;
+    color: rgb(0, 0, 0);
     padding-top: 18px;
 }
 
@@ -138,7 +144,7 @@ body{
 }
 
 
-.ms_headerboxleft .fas{
+.dark .ms_headerboxleft .fas{
     font-size: 17px;
     color: #b1b2b4;
     float: right;
@@ -146,9 +152,25 @@ body{
     padding-left: 25px;
 }
 
-.ms_headerboxright .fas{
+.white .ms_headerboxleft .fas{
+    font-size: 17px;
+    color: #1a1a1a;
+    float: right;
+    margin-top: 15px;
+    padding-left: 25px;
+}
+
+.dark .ms_headerboxright .fas{
     font-size: 17px;
     color: #b1b2b4;
+    float: right;
+    margin-top: 15px;
+    margin-right: 25px;
+}
+
+.white .ms_headerboxright .fas{
+    font-size: 17px;
+    color: #111111;
     float: right;
     margin-top: 15px;
     margin-right: 25px;
@@ -189,12 +211,20 @@ body{
     width: 40%;
 }
 
-.ms_nomefoto{
+.dark .ms_nomefoto{
     color: white;
     font-size: 14px;
     cursor: pointer;
     font-weight: bold;
 }
+
+.white .ms_nomefoto{
+    color: rgb(19, 18, 18);
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
 
 .dark .ms_boxnotifiche{
     display: flex;
@@ -258,10 +288,27 @@ body{
     margin-right: 4px;
 }
 
-.fa-microphone,
-.fa-paper-plane{
+.dark .fa-microphone{
     font-size: 17px;
     color: #b1b2b4;
+    margin-right: 10px;
+}
+
+.dark .fa-paper-plane{
+    font-size: 17px;
+    color: #b1b2b4;
+    margin-right: 10px;
+}
+
+.white .fa-microphone{
+    font-size: 17px;
+    color: #000000;
+    margin-right: 10px;
+}
+
+.white .fa-paper-plane{
+    font-size: 17px;
+    color: #000000;
     margin-right: 10px;
 }
 
@@ -381,9 +428,15 @@ body{
 
 
 
-.fa-smile{
+.dark .fa-smile{
     font-size: 17px;
     color: #b1b2b4;
+    margin-left: 10px;
+}
+
+.white .fa-smile{
+    font-size: 17px;
+    color: #000000;
     margin-left: 10px;
 }
 
@@ -436,6 +489,7 @@ body{
     flex-direction: column;
     padding: 0px 15px;
     color: white;
+    scrollbar-width: none;
 }
 
 .ms_dateleft{
@@ -566,8 +620,13 @@ display: block;
     cursor: pointer;
 }
 
-.ms_ultimoMessaggio{
+.dark .ms_ultimoMessaggio{
     color: white;
+    font-size: 13px;
+}
+
+.white .ms_ultimoMessaggio{
+    color: rgb(15, 15, 15);
     font-size: 13px;
 }
 
@@ -581,16 +640,29 @@ display: block;
     margin-bottom: 20px;
 }
 
-.ms_data2{
+.dark .ms_data2{
     width: 20%;
     color: white;
     font-size: 10px;
 }
 
-#nome{
+.white .ms_data2{
+    width: 20%;
+    color: rgb(20, 20, 20);
+    font-size: 10px;
+}
+
+.dark .ms_nomemio{
     display: inline-block;
     margin-top:17px;
     color: white;
+    font-weight: 900;
+}
+
+.white .ms_nomemio{
+    display: inline-block;
+    margin-top:17px;
+    color: rgb(14, 13, 13);
     font-weight: 900;
 }
 

@@ -14,7 +14,6 @@
     
     <div id="app"  class="dark"  :class="{white: cambioSfondo }" >
     <div class="container">
-        <button class="ms_cambiocolore" type="button" @click="cambioSfondo = !cambioSfondo" >Cambia Tema</button>
         <!-- parte SINISTRA del container -->
         <div class="ms_leftside">
         <!-- parte superiore della parte SINISTRA  -->
@@ -22,12 +21,15 @@
                 <div class="imgbox">
                     <img class="ms_profilo" src="img/angry_pepe.jpg" alt="">
                 </div>
-                <div id="nome">
+                <div class="ms_nomemio" id="nome">
                     Daniele
                 </div>
+                
                 <i class="fas fa-comment-alt"></i>
                 <i class="fas fa-ellipsis-v"></i>
                 <i class="fas fa-plus"></i>
+                <i v-if="cambioSfondo == false" @click="cambioSfondo = !cambioSfondo" class="fas fa-sun"></i>
+                <i v-else @click="cambioSfondo = !cambioSfondo"  class="fas fa-moon"></i>
                 
             </div>
                 <!-- box azzurro delle notifiche  -->
