@@ -9,8 +9,10 @@ let app = new Vue({
         dropDownCorrente:null,
         dropDownTendina: null,
         dropDownChat2:null,
+        cambioSfondo: false,
+        
         risposteRandom: [
-            "ciao", "come stai?", "sei scemo?", "fumi?", "voglio andare al mare,vuoi venire?", "o scè", "ti sto dicendo cose a casoxd", "ciao mirtillo","ciao mora"
+            "🙂😊😀😁","ciao", "come stai?", "sei scemo?", "fumi?", "voglio andare al mare,vuoi venire?", "o scè", "ti sto dicendo cose a casoxd", "ciao mirtillo","ciao mora"
         ],
         contacts: [
             {
@@ -102,10 +104,10 @@ let app = new Vue({
             },
             ]
     },
-    updated: function () {
+    /*updated: function () {
         let box = document.querySelector(".ms_boxchat");
         box.scrollTop = box.scrollHeight;
-    },
+    },*/
     methods: {
     /*function che ti cambia l'utente attivo nella lista contatti*/
         scegliutente: function(attivautente){
@@ -179,6 +181,17 @@ let app = new Vue({
                         contatto.visible=false;
                     }
                 });
+            },
+
+            cambioBackground : function(){
+                if(this.cambioSfondo != false){
+                    this.cambioSfondo = false;
+                    console.log("sfondo bianco")
+                    console.log(this.cambioSfondo)
+                }else
+                    this.cambioSfondo = true;
+                console.log("sfondo nero")
+                console.log(this.cambioSfondo)
             },
 
             dropDownChat: function(corrente){

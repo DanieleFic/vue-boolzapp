@@ -2,10 +2,24 @@
     box-sizing: border-box;
 }
 
-body{
-    background-color: black;
+#app{
+    height: 100%;
+    width: 100%;
+    background-color: gray;
 }
 
+body{
+    width: 95vw;
+    height: 95vh;
+}
+
+.light{
+    background-color: rgba(255, 255, 255, 0.4)!important;
+}
+
+.textblack{
+    color: black!important;
+}
 
 
 .ms_headerboxright
@@ -23,11 +37,12 @@ body{
 /*container principali*/
 .container {
     display: flex;
-    margin: auto;
+    margin: 0 auto;
     width: 70%;
-    margin-top: 50px;
-    height: 750px;
+    height: 100%;
     border: 1px solid gray;
+    position: relative;
+    
 }
 
 .ms_leftside{
@@ -296,7 +311,6 @@ body{
     max-width: 100%;
     background-color: #2A2F32;
     border-radius: 0px 10px 10px 10px;
-    color: rgba(255, 255, 255, 0.8);
     word-break: break-word;
 }
 .ms_chatboxright{
@@ -307,7 +321,6 @@ body{
     min-width: 100px;
     max-width: 100%;
     border-radius: 10px 0px 10px 10px;
-    color: rgba(255, 255, 255, 0.8);
     word-break: break-word;
 }
 
@@ -317,6 +330,7 @@ body{
     display: flex;
     flex-direction: column;
     padding: 0px 15px;
+    color: white;
 }
 
 .ms_dateleft{
@@ -461,4 +475,12 @@ display: block;
     margin-top:17px;
     color: white;
     font-weight: 900;
+}
+
+.ms_cambiocolore{
+    margin-left: 1300px;
+    position: absolute;
+    top: 30px;
+    width: 100px;
+    z-index: 3;
 }

@@ -9,17 +9,20 @@
     <link rel="stylesheet" href="css/style.css">
     <title>boolzapp</title>
 </head>
-<body>
+<body >
     <!-- Container generale che contiene tutto -->
-    <div id="app"  class="container">
+    
+    <div id="app"  :class="{light: cambioSfondo != false}" >
+    <div class="container">
+        <button class="ms_cambiocolore" type="button" @click="cambioBackground" >Cambia Tema</button>
         <!-- parte SINISTRA del container -->
-        <div class="ms_leftside">
+        <div class="ms_leftside" :class="{light: cambioSfondo != false}">
         <!-- parte superiore della parte SINISTRA  -->
-            <div class="ms_headerboxleft">
+            <div class="ms_headerboxleft" :class="{light: cambioSfondo != false}">
                 <div class="imgbox">
                     <img class="ms_profilo" src="img/angry_pepe.jpg" alt="">
                 </div>
-                <div id="nome">
+                <div id="nome" :class="{textblack: cambioSfondo != false}">
                     Daniele
                 </div>
                 <i class="fas fa-comment-alt"></i>
@@ -38,8 +41,8 @@
                 </div>  
             </div>
             <!-- Input search bar per cercare le chat   -->
-        <div class="ms_search">
-            <input @keyup="search" v-model="valorericerca"  class="ms_input" type="text" id="search"  placeholder="&#128270;Crea o inizia una nuova chat">
+        <div class="ms_search" :class="{light: cambioSfondo != false}">
+            <input @keyup="search" v-model="valorericerca"  :class="{light: cambioSfondo != false}" class="ms_input" type="text" id="search"  placeholder="&#128270;Crea o inizia una nuova chat">
         </div>
 
         <!--<div v-for="(persona, indice) in contacts" 
@@ -55,17 +58,18 @@
         <div class="ms_contenitorepersona">
             <div class="msdivprova"
             v-for="(persona, indice) in contacts" 
-            :class="{none:!persona.visible}" 
+            :class="{none:!persona.visible , light: cambioSfondo != false}"
+            :class="{light: cambioSfondo != false}"
             @click="scegliutente(indice)">
                 <div class="ms_foto">
-                    <img   class="ms_fotoprova"   :src="persona.avatar" alt="">
+                    <img   class="ms_fotoprova" :class="{light: cambioSfondo != false}"  :src="persona.avatar" alt="">
                 </div>
                 <div class="ms_nomeEmessaggio">
-                    <div   class="ms_nomepersona">{{ persona.name }}</div>
-                    <div  v-if="persona.messages.length > 0" class="ms_ultimoMessaggio">{{ persona.messages.at(-1).text }}</div>
-                    <div style="color: aliceblue;" v-else>Messaggio Eliminato</div>
+                    <div   class="ms_nomepersona" :class="{textblack: cambioSfondo != false}">{{ persona.name }}</div>
+                    <div  v-if="persona.messages.length > 0" :class="{textblack: cambioSfondo != false}" class="ms_ultimoMessaggio">{{ persona.messages.at(-1).text }}</div>
+                    <div style="color: aliceblue;" :class="{textblack: cambioSfondo != false}" v-else>Messaggio Eliminato</div>
                 </div>
-                    <div  v-if="persona.messages.length > 0" class="ms_data2">{{ persona.messages.at(-1).date }}</div>
+                    <div  v-if="persona.messages.length > 0"  :class="{textblack: cambioSfondo != false}" class="ms_data2">{{ persona.messages.at(-1).date }}</div>
                 </div>
             </div>
         </div>
@@ -74,21 +78,21 @@
 
 
         <!-- parte DESTRA del container  -->
-        <div     class="ms_rightside">
+        <div     class="ms_rightside" >
             <!-- parte superiore della parte DESTRA  -->
-            <div v-if="corrente != null"  class="ms_headerboxright">
+            <div v-if="corrente != null"  class="ms_headerboxright" :class="{light: cambioSfondo != false}" >
 
-                <div  class="ms_headerboxleftside">
+                <div  class="ms_headerboxleftside" :class="{textblack: cambioSfondo != false}">
                     <img  class="ms_profilo"  :src="contacts[corrente].avatar" alt="">
-                    <div class="ms_nomefoto">
-                        <span class="ms_mionome">{{contacts[corrente].name}}</span>
+                    <div class="ms_nomefoto" :class="{textblack: cambioSfondo != false}">
+                        <span class="ms_mionome" >{{contacts[corrente].name}}</span>
                         <!--<div v-if="messaggioVuoto.length > 0">{{contacts[corrente].name}} sta scrivendo...</div>-->
                         <div  v-if="contacts[corrente].messages.length > 0" >{{contacts[corrente].online}}  </div>
                     </div>
                     
                     
                 </div>
-                <div  class="ms_headerboxrightside">
+                <div  class="ms_headerboxrightside" >
                     <i  @click="dropDownChat(corrente)"   class="dropbtn fas fa-ellipsis-v"></i>
                     <div  id="myDropdown" class="dropdown-content" :class="{display: dropDownTendina == corrente}"  >
                         <a  @click="rimuoviChat(corrente)"  href="#">Rimuovi Chat</a>
@@ -99,11 +103,14 @@
             
                 
             </div>
-            <div v-if="corrente != null"  class="ms_boxchat" > 
+            <div v-if="corrente != null"  class="ms_boxchat"
+            :class="{textblack: cambioSfondo == true}" > 
                 <div 
                 v-for="(messaggi, indice) in contacts[corrente].messages" 
                 class="ms_inviato" 
-                :class="messaggiricevuti(indice)">
+                :class="messaggiricevuti(indice)"
+                
+                >
                     {{messaggi.text}}
                     <i @click="dropdown(indice)"   class="dropbtn fas fa-sort-down"></i>
                         <div  id="myDropdown" class="dropdown-content"   :class="{display: dropDownCorrente == indice}" >
@@ -124,9 +131,9 @@
                 <p>Chiama da desktop con WhatsApp per Windows. </p>
             </div>
                 
-            <div v-if="corrente != null" class="ms_containermessaggio">
+            <div v-if="corrente != null" class="ms_containermessaggio" :class="{light: cambioSfondo = true}">
                 <i class="far fa-smile"></i>
-                <input @keyup.enter="nuovoMessaggio" v-model="messaggioVuoto" class="ms_inputmessaggio" type="text" id="search"  placeholder="Scrivi un messaggio">
+                <input @keyup.enter="nuovoMessaggio" v-model="messaggioVuoto" :class="{light: cambioSfondo = true}" class="ms_inputmessaggio" type="text" id="search"  placeholder="Scrivi un messaggio">
                 <i  v-if="messaggioVuoto.length > 0" @click="nuovoMessaggio"   class="far fa-paper-plane"></i>
                 <i v-else  class="fas fa-microphone"></i>
                 
@@ -135,6 +142,8 @@
         </div>
         
     </div>
+    </div>
+        
 
 
 
