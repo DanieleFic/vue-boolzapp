@@ -59,7 +59,6 @@
             <div class="msdivprova"
             v-for="(persona, indice) in contacts" 
             :class="{none:!persona.visible , light: cambioSfondo != false}"
-            :class="{light: cambioSfondo != false}"
             @click="scegliutente(indice)">
                 <div class="ms_foto">
                     <img   class="ms_fotoprova" :class="{light: cambioSfondo != false}"  :src="persona.avatar" alt="">
@@ -124,7 +123,7 @@
             </div>
             
             <div v-else class="ms_nochat">
-                <img src="/img/noconnection.jpg" alt="">
+                <img src="img/noconnection.jpg" alt="">
                 <h1>Mantieni il telefono connesso</h1>
                 <span>WhatsApp si collega al tuo telefono per sincronizzare i messaggi.
                 Per ridurre l'utilizzo dei dati, collega il telefono al Wi-Fi.</span>

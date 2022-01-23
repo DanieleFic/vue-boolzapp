@@ -104,16 +104,15 @@ let app = new Vue({
             },
             ]
     },
-    /*updated: function () {
+    updated: function () {
         let box = document.querySelector(".ms_boxchat");
         box.scrollTop = box.scrollHeight;
-    },*/
+    },
     methods: {
     /*function che ti cambia l'utente attivo nella lista contatti*/
         scegliutente: function(attivautente){
             this.corrente = attivautente
             this.dropDownCorrente = null
-            
             //console.log(this.dropDownCorrente, "ciao")
             //console.log(this.corrente)
             },
