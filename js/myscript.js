@@ -104,10 +104,10 @@ let app = new Vue({
             },
             ]
     },
-    updated: function () {
+    /*updated: function () {
         let box = document.querySelector(".ms_boxchat");
         box.scrollTop = box.scrollHeight;
-    },
+    },*/
     methods: {
     /*function che ti cambia l'utente attivo nella lista contatti*/
         scegliutente: function(attivautente){
@@ -182,7 +182,7 @@ let app = new Vue({
                 });
             },
 
-            cambioBackground : function(){
+            /*cambioBackground : function(){
                 if(this.cambioSfondo != false){
                     this.cambioSfondo = false;
                     console.log("sfondo bianco")
@@ -191,7 +191,7 @@ let app = new Vue({
                     this.cambioSfondo = true;
                 console.log("sfondo nero")
                 console.log(this.cambioSfondo)
-            },
+            },*/
 
             dropDownChat: function(corrente){
                 console.log("la funzione è partita")
