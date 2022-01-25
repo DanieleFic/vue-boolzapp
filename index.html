@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="icon" type="image/x-icon" href="img/favicon-64x64.ico">
+    <link rel="icon" type="image/x-icon" href="img/icons8-whatsapp-512.png">
     <link rel="stylesheet" href="css/style.css">
     <title>boolzapp</title>
 </head>
@@ -68,7 +68,7 @@
                 <div class="ms_nomeEmessaggio">
                     <div   class="ms_nomepersona" >{{ persona.name }}</div>
                     <div  v-if="persona.messages.length > 0"  class="ms_ultimoMessaggio">{{ persona.messages.at(-1).text }}</div>
-                    <div style="color: aliceblue;"  v-else>Messaggio Eliminato</div>
+                    <div style="color: aliceblue;"  v-else>Messaggi Eliminati</div>
                 </div>
                     <div  v-if="persona.messages.length > 0"   class="ms_data2">{{ persona.messages.at(-1).date }}</div>
                 </div>
@@ -94,7 +94,9 @@
                 <div  class="ms_headerboxrightside" >
                     <i  @click="dropDownChat(corrente)"   class="dropbtn fas fa-ellipsis-v"></i>
                     <div  id="myDropdown" class="dropdown-content" :class="{display: dropDownTendina == corrente}"  >
+                        <a  @click="rimuoviMessaggi(corrente)"  href="#">Rimuovi Messaggi</a>
                         <a  @click="rimuoviChat(corrente)"  href="#">Rimuovi Chat</a>
+
                     </div>
                     <i class="fas fa-search"></i>
                 </div>

@@ -227,9 +227,15 @@ let app = new Vue({
             rimuoviChat : function ( corrente ){
                 console.log(this.contacts[corrente])
                 this.contacts.splice(corrente, 1)
-            }
-        },
+            },
 
+            rimuoviMessaggi: function ( corrente ){
+            
+                this.contacts[corrente].messages = []
+            },
+        }
+        
+    
 })          
 
 
